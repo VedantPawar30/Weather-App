@@ -8,6 +8,15 @@ const userInfoContainer = document.querySelector(".user-info-container");
 const errorContainer = document.querySelector(".error-container");
 const apiKey = "d5c9dd7c6fde8f251b7f149850e6bae8";
 
+for (const sheet of document.styleSheets) {
+  try {
+    const rules = sheet.cssRules;
+    // Do something with rules
+  } catch (e) {
+    if (e.name !== 'SecurityError') throw e;
+    // Skip cross-origin stylesheets
+  }
+}
 let currentTab = userTab;
 currentTab.classList.add("current-tab");
 getFromSessionStorage();
